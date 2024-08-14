@@ -29,7 +29,7 @@ const store = createStore({
   },
   getters: {
     finalCounter(state) {
-      return state.counter * 2;
+      return state.counter * 2; // new computed value
     },
   },
 });
