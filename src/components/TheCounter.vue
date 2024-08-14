@@ -5,7 +5,7 @@
 export default {
   computed: {
     counting() {
-      return this.$store.state.counter;
+      return this.$store.getters.finalCounter;
     },
   },
 };
