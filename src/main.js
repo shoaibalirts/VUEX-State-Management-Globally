@@ -5,6 +5,7 @@ const store = createStore({
   state() {
     return {
       counter: 0,
+      isLoggedIn: false,
     };
   },
   mutations: {
@@ -14,8 +15,20 @@ const store = createStore({
     increase(state, payload) {
       state.counter = state.counter + payload.value;
     },
+    logInMut(state, payload) {
+      state.isLoggedIn = payload.value; // logic
+    },
+    logOutMut(state, payload) {
+      state.isLoggedIn = payload.value; // logic
+    },
   },
   actions: {
+    logInAction(context) {
+      context.commit('logInMut');
+    },
+    logOutAction(context) {
+      context.commit('logOutMut');
+    },
     increment(context) {
       // this increment is actions
       // asynchronous code
@@ -30,6 +43,9 @@ const store = createStore({
   getters: {
     finalCounter(state) {
       return state.counter * 2; // new computed value
+    },
+    getIsloggedIn(state) {
+      return state.isLoggedIn;
     },
   },
 });
