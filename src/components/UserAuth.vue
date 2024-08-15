@@ -1,6 +1,6 @@
 <template>
-  <button @click="logIn({ value: true })">Login</button>
-  <button @click="logOut({ value: false })">Logout</button>
+  <button @click="logIn">Login</button>
+  <button @click="logOut">Logout</button>
   <!-- <button @click="logIn({ value: true })">Login</button>
   <button @click="logOut({ value: false })">Logout</button> -->
 </template>
