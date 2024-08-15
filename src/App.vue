@@ -1,5 +1,5 @@
 <template>
-  <base-container v-if="getIsLoggedIn" title="Vuex">
+  <base-container v-if="getIsloggedIn" title="Vuex">
     <the-counter></the-counter>
     <button @click="addOne">Add 10</button>
     <change-counter></change-counter>
@@ -24,6 +24,8 @@ export default {
   },
   methods: {
     addOne() {
+      console.log(mapGetters);
+
       // this.$store.commit('increase', { value: 10 });
       // this.$store.dispatch('increase', { value: 10 });
       // this.$store.commit({
