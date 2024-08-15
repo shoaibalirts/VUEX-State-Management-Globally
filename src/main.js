@@ -16,23 +16,23 @@ const store = createStore({
       state.counter = state.counter + payload.value;
     },
     logInMut(state, payload) {
-      console.log(payload);
+      console.log('payload in logInMut: ' + payload);
       state.isLoggedIn = payload.value; // logic
       console.log(state);
     },
     logOutMut(state, payload) {
-      console.log(payload);
+      console.log('payload in logOutMut: ' + payload);
       state.isLoggedIn = payload.value; // logic
       console.log(state);
     },
   },
   actions: {
-    // logInAction(context, payload) {
-    //   context.commit('logInMut', payload.value);
-    // },
-    // logOutAction(context, payload) {
-    //   context.commit('logOutMut', payload.value);
-    // },
+    logInAction(context, payload) {
+      context.commit('logInMut', payload);
+    },
+    logOutAction(context, payload) {
+      context.commit('logOutMut', payload);
+    },
     increment(context) {
       // this increment is actions
       // asynchronous code

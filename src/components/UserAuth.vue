@@ -1,35 +1,29 @@
 <template>
-  <button @click="logIn">Login</button>
-  <button @click="logOut">Logout</button>
-  <!-- <button @click="logIn({ value: true })">Login</button>
-  <button @click="logOut({ value: false })">Logout</button> -->
+  <button v-if="!getIsloggedIn" @click="logIn">Login</button>
+  <button v-if="getIsloggedIn" @click="logOut">Logout</button>
 </template>
-<script>
-// import { mapActions } from 'vuex';
 
+<script>
+import { mapGetters } from 'vuex';
 export default {
   methods: {
-    // ...mapActions[('logInAction', 'logOutAction')],
     logIn() {
       console.log('listening login');
-
-      this.$store.commit('logInMut', { value: true });
-      // this.$store.dispatch({
-      //   type: 'logInAction',
-      //   value: true,
-      // });
+      this.$store.dispatch({
+        type: 'logInAction',
+        value: true,
+      });
     },
     logOut() {
       console.log('listening logout');
-
-      this.$store.commit('logOutMut', { value: false });
-
-      //   this.$store.dispatch({
-      //     type: 'logOutAction',
-      //     value: false,
-      //   });
-      // },
+      this.$store.dispatch({
+        type: 'logOutAction',
+        value: false,
+      });
     },
+  },
+  computed: {
+    ...mapGetters(['getIsloggedIn']),
   },
 };
 </script>
